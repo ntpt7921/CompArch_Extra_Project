@@ -4,6 +4,12 @@
 .data
 # VARIABLES
 
+# put this here instead of inside the bitmap subpart 
+# to make sure it is ordered first (at .data base address)
+.globl display_memory_range
+display_memory_range:
+	# the amount of space is subjected to change
+	.space 10000
 
 # DATA PROMPT
 
