@@ -23,8 +23,8 @@ byte_t column_height[COLUMN_NUM];
 // the maximum value is COLUMN_NUM * ROW_NUM
 word_t piece_count;
 
-// initialize display and global var
-void initialize(void);
+// PRINT AND USER INPUT
+// ____________________________________________________________________________
 // various print function
 void print_welcome_prompt(void);
 void print_current_player_prompt(void);
@@ -34,14 +34,22 @@ void print_ending_prompt(void);
 byte_t ask_for_first_player(void);
 // ask the column to place the next piece, with check for full column
 word_t ask_for_new_piece_column(void);
-// check column if there is still space
-byte_t check_column_has_space(word_t column);
-// place piece into specified column, with said piece belonging to specified player
-void place_piece_into_column(word_t column, byte_t player);
+
+// BITMAP DISPLAY FUNCTION
+// ____________________________________________________________________________
 // clear display
 void update_display_clear(void);
 // update display with new piece
 void update_display_add_new_piece(word_t column, byte_t player);
+
+// GAME STATE CHANGING AND HELPER FUNCTION
+// ____________________________________________________________________________
+// initialize display and global var
+void initialize(void);
+// check column if there is still space
+byte_t check_column_has_space(word_t column);
+// place piece into specified column, with said piece belonging to specified player
+void place_piece_into_column(word_t column, byte_t player);
 // check current board and update the game state (win, tie)
 void update_game_state(word_t column);
 // update current_player to be the other player
