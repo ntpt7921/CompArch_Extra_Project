@@ -173,7 +173,7 @@ li		$t4, 2
 la		$t1, column_height
 add		$t1, $t1, $a0
 lbu		$t1, 0($t1)
-# decrease by one since we use zero index for pixel
+# invert row index
 M_INVERT_ROW_INDEX($t1)
 M_GET_PIXEL_ADDR($a0, TEMP_REG, MEMORY_BASE_REG, $t2)
 # set the color base on $a1 (player) value

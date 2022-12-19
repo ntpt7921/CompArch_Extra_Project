@@ -59,7 +59,7 @@ LOOP:
 
 	jal print_current_player_prompt
 
-	jal ask_for_new_piece_column
+	#jal ask_for_new_piece_column
 	move $s0, $v0					# save the user selected column
 
 	add $a0, $v0, $zero				# argument_1 (column)
@@ -79,6 +79,7 @@ LOOP:
 	jal update_game_state			# a0 is argument
 
 	jal change_to_next_player_turn
+	j LOOP
 EXIT:
 	jal print_ending_prompt
 	# exit

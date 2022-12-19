@@ -60,8 +60,8 @@ word_t piece_count;
 ```
 
 We will need to store the state of each position within the board. As such, the 2-dimensional array
-`piece_position` will be used. The array will be indexed by column-major order (column first,
-then row).
+`piece_position` will be used. The array will be indexed by row-major order (row first, then
+column).
 
 Each column will have a stack of piece with a certain height. We need to store this height so that
 finding the top of the stack is easy. Stack height is stored in a array `column_height` (which
