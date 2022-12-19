@@ -60,11 +60,11 @@ word_t piece_count;
 ```
 
 We will need to store the state of each position within the board. As such, the 2-dimensional array
-`piece_position`{.c} will be used. The array will be indexed by column-major order (column first,
+`piece_position` will be used. The array will be indexed by column-major order (column first,
 then row).
 
 Each column will have a stack of piece with a certain height. We need to store this height so that
-finding the top of the stack is easy. Stack height is stored in a array `column_height`{.c} (which
+finding the top of the stack is easy. Stack height is stored in a array `column_height` (which
 is indexed by column number).
 
 `piece_count` is used to stored the number of piece placed into the board already. It is used to
@@ -146,7 +146,7 @@ is created.
 
 But comparison will assumed that all operand to be signed (with 2-complement representation).
 
-## Function ABI
+### Function ABI
 
 Every function will have its parameter passed in with register `$a0`, `$a1`, `$a2`,... (in that
 order).

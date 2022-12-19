@@ -66,22 +66,22 @@ beqz	$t4, exit_loop_outer
 	begin_loop_inner:
 	slt		$t4, $t3, $t1
 	beqz	$t4, exit_loop_inner
-	
+
 		# inner loop body
 		M_INVERT_ROW_INDEX($t2)
 		M_GET_PIXEL_ADDR($t3, TEMP_REG, MEMORY_BASE_REG, $t5)
 		M_SET_PIXEL_COLOR($t5, %color)
-	
+
 	addi	$t3, $t3, 1
 	j		begin_loop_inner
 	exit_loop_inner:
-	
+
 addi	$t2, $t2, 1
 j		begin_loop_outer
 exit_loop_outer:
 .end_macro
 
-# the bottom and top row will be unused 
+# the bottom and top row will be unused
 # they will be paint with altenating color1 and color2
 .macro	M_PAINT_UNUSED_ROW(%color1, %color2)
 li		$t1, SCREEN_SIZE
@@ -97,7 +97,7 @@ beqz	$t4, exit_loop_outer
 	M_INVERT_ROW_INDEX($0)
 	M_GET_PIXEL_ADDR($t2, TEMP_REG, MEMORY_BASE_REG, $t5)
 	M_GET_PIXEL_ADDR($t2, $0, MEMORY_BASE_REG, $t6)
-	
+
 	beqz	$t3, set_second_color
 	M_SET_PIXEL_COLOR($t5, %color1)
 	M_SET_PIXEL_COLOR($t6, %color1)
@@ -107,7 +107,7 @@ beqz	$t4, exit_loop_outer
 	M_SET_PIXEL_COLOR($t6, %color2)
 	end_set_color:
 	xori	$t3, $t3, 1		#invert bit 1 of t3 (0 -> 1, 1 -> 0)
-	
+
 addi	$t2, $t2, 1
 j		begin_loop_outer
 exit_loop_outer:
@@ -128,16 +128,16 @@ beqz	$t4, exit_loop_outer
 	begin_loop_inner:
 	slt		$t4, $t3, $t1
 	beqz	$t4, exit_loop_inner
-	
+
 		# inner loop body
 		M_INVERT_ROW_INDEX($t3)
 		M_GET_PIXEL_ADDR($t2, TEMP_REG, MEMORY_BASE_REG, $t5)
 		M_SET_PIXEL_COLOR($t5, %color)
-	
+
 	addi	$t3, $t3, 1
 	j		begin_loop_inner
 	exit_loop_inner:
-	
+
 addi	$t2, $t2, 1
 j		begin_loop_outer
 exit_loop_outer:
@@ -204,7 +204,7 @@ sb	$t1, 3($t2)
 sb	$t1, 4($t2)
 sb	$t1, 5($t2)
 sb	$t1, 6($t2)
-	
+
 li	$a0, 1
 li	$a1, 1
 jal update_display_add_new_piece

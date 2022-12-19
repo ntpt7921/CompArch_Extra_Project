@@ -1,7 +1,7 @@
 # Bitmap display
 
 This document describe the usage of functions within the bitmap display module. It also provide
-image for the image created (of the game board) from using said function.
+image for the display created (of the game board) from using said function.
 
 All the code for such function is put within the file `update_display.asm`.
 
