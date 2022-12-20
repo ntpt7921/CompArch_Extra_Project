@@ -7,6 +7,7 @@
 # put this here instead of inside the bitmap subpart
 # to make sure it is ordered first (at .data base address)
 .globl display_mem_range
+.align 2			# align to word boundary
 display_mem_range:
 	.space	256		# 8 * 8 * 4 byte = 64 word = 64 pixel
 
@@ -37,6 +38,7 @@ column_height:
 # piece count is used to determine if there is still space left
 # the maximum value is COLUMN_NUM * ROW_NUM
 .globl piece_count
+.align 2			# align to word boundary
 piece_count:
 	.word	0
 
@@ -59,7 +61,7 @@ LOOP:
 
 	jal print_current_player_prompt
 
-	#jal ask_for_new_piece_column
+	jal ask_for_new_piece_column
 	move $s0, $v0					# save the user selected column
 
 	add $a0, $v0, $zero				# argument_1 (column)
